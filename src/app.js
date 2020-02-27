@@ -1,43 +1,54 @@
 "use strict";
+class Header extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>New application</h1>
+        <p>this will be a paragraph</p>
+      </div>
+    );
+  }
+}
 
-console.log("App.js is running!");
-var appRoot = document.getElementById("app");
+class Action extends React.Component {
+  render() {
+    const button = "this is my text";
 
-const app = {
-  title: " This is my title",
-  subtitle: " This is my subtitle",
-  option: ["One", "Two"]
-};
+    return (
+      <div>
+        <button>{button}</button>
+      </div>
+    );
+  }
+}
 
-const user = {
-  name: "Omar Vega",
-  age: 38,
-  location: "Miami,FL"
-};
-const userLocation = location => {
-  return location ? <p>Location: {location}</p> : undefined;
-};
-const templateTwo = (
+class Options extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>This is options</p>
+      </div>
+    );
+  }
+}
+
+class AddOptions extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>This is add options</p>
+      </div>
+    );
+  }
+}
+
+const jsx = (
   <div>
-    <h1>{user.name ? user.name : "Anonymous"}</h1>
-    {user.age && user.age >= 18 && <p>Age: {user.age}</p>}
-    {userLocation(user.location)}
+    <Header />
+    <Action />
+    <Options />
+    <AddOptions />
   </div>
 );
 
-const template = (
-  <div>
-    <h1>React answers</h1>
-    <p>this is the app</p>
-    <ol>
-      <li>Title:{app.title}</li>
-      <li>
-        Subtitle:
-        {app.subtitle && <p>{app.subtitle}</p>}
-        {app.option.length > 0 ? "Here are your options" : "Other options"}
-      </li>
-    </ol>
-  </div>
-);
-
-ReactDOM.render(template, appRoot);
+ReactDOM.render(jsx, document.getElementById("app"));
