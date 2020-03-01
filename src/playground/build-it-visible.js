@@ -1,19 +1,32 @@
-console.log("connected");
+"use strict";
+class VisibilityToggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.actionToggle = this.actionToggle.bind(this);
+    this.state = {
+      visibility: false
+    };
+  }
 
-const appRoot = document.getElementById("app");
-const paragrah
+  actionToggle() {
+    // alert("c");
+    this.setState(previousState => {
+      return {
+        visibility: !previousState.visibility
+      };
+    });
+  }
 
-const renderApp = () => {
-  const template = (
-    <div>
-      <p>This is my string</p>
-      <button>Button here</button>
-    </div>
-  );
-  //
+  render() {
+    return (
+      <div>
+        <button onClick={this.actionToggle}>
+          {this.state.visibility ? "Hide Details" : "Show details"}
+        </button>
+        {this.state.visibility && <p>This is my paragraph</p>}
+      </div>
+    );
+  }
+}
 
-  // @ts-ignore
-  ReactDOM.render(template, appRoot);
-};
-
-renderApp();
+ReactDOM.render(<VisibilityToggle />, document.getElementById("app"));
