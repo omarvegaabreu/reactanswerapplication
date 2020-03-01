@@ -21,7 +21,7 @@ var App = function (_React$Component) {
     _this.handleAddOption = _this.handleAddOption.bind(_this);
 
     _this.state = {
-      options: []
+      options: props.options
     };
     return _this;
   }
@@ -64,13 +64,12 @@ var App = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var title = "What's for Dinner?";
       var subTitle = "Write your options and click for magic";
 
       return React.createElement(
         "div",
         null,
-        React.createElement(Header, { title: title, subTitle: subTitle }),
+        React.createElement(Header, { subTitle: subTitle }),
         React.createElement(Action, { hasOptions: this.state.options, randomPick: this.randomPick }),
         React.createElement(Options, {
           options: this.state.options,
@@ -84,6 +83,10 @@ var App = function (_React$Component) {
   return App;
 }(React.Component);
 
+App.defaultProps = {
+  options: []
+};
+
 var Header = function Header(props) {
   return React.createElement(
     "div",
@@ -93,12 +96,16 @@ var Header = function Header(props) {
       null,
       props.title
     ),
-    React.createElement(
+    props.subTitle && React.createElement(
       "p",
       null,
       props.subTitle
     )
   );
+};
+
+Header.defaultProps = {
+  title: "Where do you want to eat?"
 };
 
 var Action = function Action(props) {

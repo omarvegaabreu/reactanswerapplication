@@ -6,7 +6,7 @@ class CounterApp extends React.Component {
     this.removeOne = this.removeOne.bind(this);
     this.reset = this.reset.bind(this);
     this.state = {
-      count: 0
+      count: props.count
     };
   }
   //button methods
@@ -47,5 +47,9 @@ class CounterApp extends React.Component {
     );
   }
 }
+
+CounterApp.defaultProps = {
+  count: 0
+};
 
 ReactDOM.render(<CounterApp />, document.getElementById("app"));
