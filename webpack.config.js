@@ -17,5 +17,11 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
+  },
+  devtool: "eval-cheap-source-map",
+  devServer: {
+    contentBase: path.join(__dirname, "public"),
+    compress: true,
+    port: 9000
   }
 };

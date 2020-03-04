@@ -1,5 +1,7 @@
+"use strict";
+
 import React from "react";
 import ReactDOM from "react-dom";
+import ReactAnswersApplication from "./components/ReactAnswersApplication";
 
-const test = <p>this is jsx</p>;
-ReactDOM.render(test, document.getElementById("app"));
+ReactDOM.render(<ReactAnswersApplication />, document.getElementById("app"));
