@@ -5,11 +5,12 @@ const Option = props => (
     <div>
       {props.optionText}
       <button
+        className="button--link"
         onClick={e => {
           props.handelDeleteOption(props.optionText);
         }}
       >
-        Delete Option
+        Delete
       </button>
     </div>
   </div>
