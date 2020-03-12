@@ -74,19 +74,20 @@ export default class App extends React.Component {
 
     return (
       <div>
+        <Header className="container" subTitle={subTitle} />
         <div className="container" >
-          <Header className="container" subTitle={subTitle} />
-
           <Action
             hasOptions={this.state.options}
             handleRandomPick={this.handleRandomPick}
           />
-          <Options
-            options={this.state.options}
-            handleRemoveAll={this.handleRemoveAll}
-            handelDeleteOption={this.handelDeleteOption}
-          />
-          <AddOption handleAddOption={this.handleAddOption} />
+          <div className="widget">
+            <Options
+              options={this.state.options}
+              handleRemoveAll={this.handleRemoveAll}
+              handelDeleteOption={this.handelDeleteOption}
+            />
+            <AddOption handleAddOption={this.handleAddOption} />
+          </div>
         </div>
 
         <OptionModal
